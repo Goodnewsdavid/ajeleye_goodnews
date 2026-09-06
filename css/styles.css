@@ -211,17 +211,17 @@ body.is-hovering .cursor span { transform: scale(1.8); }
 
 .hero-figure {
   position: absolute;
-  right: 8vw;
-  top: 22vh;
-  width: min(340px, 32vw);
+  right: 5vw;
+  top: 14vh;
+  width: min(560px, 46vw);
   z-index: 2;
 }
 
 .hero-figure .bow {
   position: absolute;
-  right: -10px;
-  bottom: 18px;
-  width: 78px;
+  right: -14px;
+  bottom: 28px;
+  width: 110px;
   color: var(--pink);
 }
 
@@ -666,7 +666,7 @@ body.is-hovering .cursor span { transform: scale(1.8); }
     position: relative;
     top: auto;
     right: auto;
-    width: min(210px, 68vw);
+    width: min(300px, 82vw);
     margin: 32px 0 8px;
     order: 0;
   }
