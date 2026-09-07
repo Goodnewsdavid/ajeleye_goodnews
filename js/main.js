@@ -189,7 +189,7 @@ form?.addEventListener("submit", (event) => {
   const name = String(data.get("name") || "").trim();
   const email = String(data.get("email") || "").trim();
   const message = String(data.get("message") || "").trim();
-  window.location.href = `mailto:hello@goodnewsajileye.com?subject=${encodeURIComponent(`UGC / modeling inquiry from ${name}`)}&body=${encodeURIComponent(`${message}\n\nFrom: ${name} <${email}>`)}`;
+  window.location.href = `mailto:goodnewsajileye2022@gmail.com?subject=${encodeURIComponent(`UGC / modeling inquiry from ${name}`)}&body=${encodeURIComponent(`${message}\n\nFrom: ${name} <${email}>`)}`;
   const note = form.querySelector(".form-note");
   if (note) note.hidden = false;
   form.reset();
