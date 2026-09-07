@@ -194,3 +194,66 @@ form?.addEventListener("submit", (event) => {
   if (note) note.hidden = false;
   form.reset();
 });
+
+const typeEl = document.querySelector("#hero-type");
+const prefixEl = document.querySelector("#hero-type-prefix");
+const caretEl = document.querySelector(".hero-caret");
+const roles = [
+  { article: "a", label: "Modeling" },
+  { article: "a", label: "UGC\u00A0Creator" },
+  { article: "a", label: "Video\u00A0Editor" },
+  { article: "an", label: "Influencer" },
+];
+
+function startTypewriter() {
+  if (!typeEl) return;
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    typeEl.textContent = roles.map((role) => role.label).join(" · ");
+    caretEl?.classList.add("is-off");
+    return;
+  }
+
+  let role = 0;
+  let index = 0;
+  let deleting = false;
+
+  const paint = () => {
+    const current = roles[role];
+    if (prefixEl) prefixEl.textContent = `I am ${current.article}`;
+    typeEl.textContent = current.label.slice(0, index);
+  };
+
+  const tick = () => {
+    const word = roles[role].label;
+    paint();
+
+    if (!deleting && index < word.length) {
+      index += 1;
+      setTimeout(tick, 78);
+      return;
+    }
+
+    if (!deleting && index === word.length) {
+      deleting = true;
+      setTimeout(tick, 1700);
+      return;
+    }
+
+    if (deleting && index > 0) {
+      index -= 1;
+      setTimeout(tick, 42);
+      return;
+    }
+
+    deleting = false;
+    role = (role + 1) % roles.length;
+    index = 0;
+    setTimeout(tick, 260);
+  };
+
+  paint();
+  tick();
+}
+
+startTypewriter();
