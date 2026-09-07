@@ -199,7 +199,7 @@ const typeEl = document.querySelector("#hero-type");
 const prefixEl = document.querySelector("#hero-type-prefix");
 const caretEl = document.querySelector(".hero-caret");
 const roles = [
-  { article: "a", label: "Modeling" },
+  { article: "a", label: "Model" },
   { article: "a", label: "UGC\u00A0Creator" },
   { article: "a", label: "Video\u00A0Editor" },
   { article: "an", label: "Influencer" },
