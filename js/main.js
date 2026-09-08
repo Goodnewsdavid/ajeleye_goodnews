@@ -66,7 +66,7 @@ if (finePointer && desktop.matches && cursor) {
   });
 }
 
-const sections = ["#about", "#do", "#works", "#process", "#contact"]
+const sections = ["#about", "#do", "#works", "#niche", "#process", "#contact"]
   .map((id) => document.querySelector(id))
   .filter(Boolean);
 
@@ -257,3 +257,23 @@ function startTypewriter() {
 }
 
 startTypewriter();
+
+const lightbox = document.querySelector("#reach-lightbox");
+const lightboxImg = lightbox?.querySelector("img");
+const lightboxCap = lightbox?.querySelector(".reach-lightbox-cap");
+
+document.querySelectorAll(".reach-shots button").forEach((button) => {
+  button.addEventListener("click", () => {
+    const shot = button.querySelector("img");
+    const caption = button.parentElement?.querySelector("figcaption");
+    if (!lightbox || !lightboxImg || !shot) return;
+    lightboxImg.src = shot.currentSrc || shot.src;
+    lightboxImg.alt = shot.alt;
+    if (lightboxCap) lightboxCap.textContent = caption?.textContent || "";
+    lightbox.showModal();
+  });
+});
+
+lightbox?.addEventListener("click", (event) => {
+  if (event.target === lightbox) lightbox.close();
+});
